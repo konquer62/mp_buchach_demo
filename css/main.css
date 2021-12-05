@@ -1,0 +1,478 @@
+/*
+COLORS:
+Green: #417841
+Yellow: #ffc000
+*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    
+
+}
+
+section{
+    margin-bottom: 60px;
+}
+
+.none {
+    display: none !important;
+}
+
+.menu-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.menu-wrap .toggler{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+.menu-wrap .hamburger{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background:#417841;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Hamburger line */
+.menu-wrap .hamburger >div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+/* Top and bottom lines */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+/* Moves line down */
+.menu-wrap .hamburger > div:after{
+    top: 10px;
+}
+/* Toggler animate */
+.menu-wrap .toggler:checked + .hamburger > div{
+    transform: rotate(135deg);
+}
+/* Turn Lines into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after{
+    top: 0;
+    transform: rotate(90deg);
+}
+/* Rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div{
+    transform: rotate(225deg);
+}
+/* Show menu */
+.menu-wrap .toggler:checked ~ .menu{
+    visibility: visible;
+}
+.menu-wrap .toggler:checked ~ .menu > div{
+    transform: scale(1);
+    transition-duration: 0.5s;
+}
+.menu-wrap .toggler:checked ~ .menu > div > div{
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     visibility: hidden; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-wrap .menu > div{
+    background-color: #417841d3;
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+     transform: scale(0); 
+    transition: all 0.4s ease;
+}
+.menu-wrap .menu > div >div{
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+     opacity: 0; 
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.menu-wrap .menu >div > div > ul > li > a{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+
+    background: url("../img/header.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.header_background {
+    padding: 50px 75px 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 275px;
+    width: 530px;
+
+}
+.header_text {
+    color: #fff;
+    text-align: center;
+}
+
+.header-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 39px;
+}
+
+.header-subtitle {
+    margin: 0;
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.header-button {
+    margin-top: 30px;
+    display: inline-block;
+    height: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #fff;
+
+    border-radius: 7px;
+  
+    background-color: #4178419C;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26 px;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+}
+
+
+.header-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.header-arrow {
+    width: 48px;
+    height: 48px;
+  
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 30px;
+
+    transition: transform 0.2s ease-in;
+  }
+
+.who_we_are-title {
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+
+    letter-spacing: 0.04em;
+}
+.who_we_are-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.who_we_are-text {
+    padding-right: 130px;
+
+    text-align: justify;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.who_we_are-image {
+    height: 60vh;
+    border-radius: 15px;
+
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.our_values-title{
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+
+    letter-spacing: 0.04em;
+}
+
+.text-block-subtitle {
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+}
+
+.text-block>p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.04em;
+}
+
+.guidance-title {
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+
+    letter-spacing: 0.04em;
+}
+
+.guidance-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+
+    width: 270px;
+    height: 290px;
+    background: #C4C4C4;
+    border-radius: 5px;
+    margin: 20px 35px;
+
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.card>img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card-text {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 0;
+    height: 92px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 5px 5px;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 15px;
+    letter-spacing: 0.04em;
+}
+
+.card-subtitle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+}
+
+.activity-title {
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+
+    letter-spacing: 0.04em;
+}
+
+.activity-background {
+    
+    position: relative;
+    width: 1170px;
+    height: 650px;
+}
+
+.activity-text {
+    padding: 0px 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+
+    color: #FFFFFF;
+
+
+}
+
+.activity-text-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.activity-background>img {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.help-title {
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+
+    letter-spacing: 0.04em;
+}
+.help-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.help-text {
+    text-align: justify;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.help-text>ul>li:not(:last-child) {
+    margin-bottom: 20px;  
+}
+
+.help-image {
+    height: 60vh;
+    border-radius: 15px;
+
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: inset 0px 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.footer-copyright {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.footer_icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer_icons > * + * {
+    margin-left: 15px;
+}
+
+.footer-mail {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
